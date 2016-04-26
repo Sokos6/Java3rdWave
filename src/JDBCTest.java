@@ -14,6 +14,12 @@ public class JDBCTest {
 		while(rs.next()) {
 			System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
 		}
+		rs.close();
+		
+		sqltxt = "UPDATE EMPLOYEE SET LASTNAME = 'Smithers' " + " WHERE id = 9883";
+		int uc = stmt.executeUpdate(sqltxt);
+		System.out.println("/n" + uc + " row(s) updated.");
+		
 		stmt.close();
 		conn.close();
 	}
